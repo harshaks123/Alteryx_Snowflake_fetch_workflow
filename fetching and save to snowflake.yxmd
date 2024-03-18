@@ -1,0 +1,194 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2023.2" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="66" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>my_trial_snowflake_connection</Connection>
+          <Query>select * 
+from "TRIAL"."MY_SCHEMA"."MY_TABLE"</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Source=my_trial_snowflake_connection
+Query=select * 
+from "TRIAL"."MY_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="LockInGui.LockInFilter.LockInFilter">
+        <Position x="258" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Field>COUNTRY</Field>
+            <Operator>=</Operator>
+            <Operands>
+              <Operand>India</Operand>
+            </Operands>
+          </Simple>
+          <ValidateBeforeRun value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>"COUNTRY" = 'India'</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFilter" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="LockInGui.LockInBrowse.LockInBrowse">
+        <Position x="162" y="18" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CurrentTempFile>C:\Users\User1\AppData\Local\Temp\Engine_14600_6deb2cc9a926124fb7b857165e603212_\Engine_20376_4fc89e0a605e418ca7bfc0ebba8c9b6f_._AlteryxInDBBrowseCache_f81cb8d46d4b73fd1b276bf9bc00f02c.yxdb</CurrentTempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+          <FirstNRecords>100</FirstNRecords>
+          <UseCache value="True" />
+          <DataFromCache>True</DataFromCache>
+          <CacheKey>f81cb8d46d4b73fd1b276bf9bc00f02c</CacheKey>
+          <TempFile>C:\Users\User1\AppData\Local\Temp\Engine_20376_._AlteryxInDBBrowseCache_f81cb8d46d4b73fd1b276bf9bc00f02c.yxdb</TempFile>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>First 100 records
+Caching enabled</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInBrowse" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="LockInGui.LockInStreamOut.LockInStreamOut">
+        <Position x="354" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Sort value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInStreamOut" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="474" y="78" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File />
+          <Passwords />
+          <Disable>False</Disable>
+          <FormatSpecificOptions UseDcm="true" MaxRecords="" Format="23">
+            <TableStyle>Quoted</TableStyle>
+            <TransactionMessages>False</TransactionMessages>
+            <Table>new_trial</Table>
+            <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+            <OutputOption>Create</OutputOption>
+            <Connection DcmType="ConnectionId">33963142-83a0-44eb-a4a1-5eba393558f9</Connection>
+            <PostSQL />
+            <TransactionSize>10000</TransactionSize>
+            <PreSQL />
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>dcm:snowflake — my_snowflake_trial
+Table=new_trial</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>fetching and save to snowflake</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="fb5d174d-7433-4310-a147-b9cb25fdfd2c" />
+      <Telemetry>
+        <PreviousWorkflowId value="0663622c-7ad3-4d59-ad27-3abc5bb1128b" />
+        <OriginWorkflowId value="0663622c-7ad3-4d59-ad27-3abc5bb1128b" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
